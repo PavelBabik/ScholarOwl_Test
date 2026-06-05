@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
     }
 })
 
-router.patch('/:profileId/:requirementId', (req, res) => {
+router.patch('/:profileId/:programId/:requirementId', (req, res) => {
     const schema = z.object({
         status: z.enum(['missing', 'in_progress', 'complete']),
         notes: z.string().optional().default('')
@@ -45,6 +45,7 @@ router.patch('/:profileId/:requirementId', (req, res) => {
     try {
         const item = updateChecklistItem(
             req.params.profileId,
+            req.params.programId,
             req.params.requirementId,
             result.data.status,
             result.data.notes

@@ -39,7 +39,7 @@ describe('Readiness flow', () => {
         expect(readinessBefore.body.readinessScore).toBe(0)
 
         const updateResponse = await request(app)
-            .patch(`/checklists/${profileId}/transcripts`)
+            .patch(`/checklists/${profileId}/${programId}/transcripts`)
             .send({
                 status: 'complete',
                 notes: 'Uploaded official transcript'

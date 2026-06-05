@@ -8,7 +8,7 @@ const profileSchema = z.object({
     name: z.string().min(2),
     email: z.string().email(),
     educationLevel: z.string().min(2),
-    gpa: z.number().min(0).max(4),
+    gpa: z.coerce.number().min(0).max(4),
     testScores: z.string().optional(),
     targetTerm: z.string().min(2)
 })
@@ -17,6 +17,9 @@ router.post('/', (req, res) => {
     const result = profileSchema.safeParse(req.body)
 
     if (!result.success) {
+        console.log('PROFILE BODY:', req.body)
+        console.log('PROFILE VALIDATION ERROR:', result.error.flatten())
+
         return res.status(400).json({
             message: 'Validation error',
             errors: result.error.flatten()

@@ -33,6 +33,7 @@ export function createChecklist(profileId: string, programId: string): Checklist
         id: `${profileId}-${programId}-${requirement.id}`,
         profileId,
         programId,
+        title: requirement.title,
         requirementId: requirement.id,
         status: 'missing' as const,
         dueDate: computeDueDate(program.applicationDeadline, requirement.dueOffsetDays),
@@ -46,6 +47,7 @@ export function createChecklist(profileId: string, programId: string): Checklist
 
 export function updateChecklistItem(
     profileId: string,
+    programId: string,
     requirementId: string,
     status: ChecklistItem['status'],
     notes: string
@@ -53,6 +55,7 @@ export function updateChecklistItem(
     const item = checklistItems.find(
         (checklistItem) =>
             checklistItem.profileId === profileId &&
+            checklistItem.programId === programId &&
             checklistItem.requirementId === requirementId
     )
 

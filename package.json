@@ -1,10 +1,15 @@
 {
-  "name": "ScholarOwl_Test",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "scholarowl-test",
+  "private": true,
   "scripts": {
     "dev": "concurrently \"cd api && yarn dev\" \"cd ui && yarn dev\"",
-    "test": "concurrently \"cd api && yarn test\" \"cd ui && yarn test\""
+
+    "test": "concurrently \"cd api && yarn test\" \"cd ui && yarn test\"",
+
+    "test:api": "cd api && yarn test",
+    "test:ui": "cd ui && yarn test",
+
+    "install:all": "cd api && yarn install && cd ../ui && yarn install"
   },
   "repository": "https://github.com/PavelBabik/ScholarOwl_Test.git",
   "author": "Pavlo Babik <pasha.rv1234@gmail.com>",
