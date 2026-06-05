@@ -1,0 +1,15 @@
+{
+  "name": "ScholarOwl_Test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd api && yarn dev\" \"cd ui && yarn dev\"",
+    "test": "concurrently \"cd api && yarn test\" \"cd ui && yarn test\""
+  },
+  "repository": "https://github.com/PavelBabik/ScholarOwl_Test.git",
+  "author": "Pavlo Babik <pasha.rv1234@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
